@@ -19,9 +19,14 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "react-hooks"],
   "rules": {
     "react/react-in-jsx-scope": 0,
+    "react/jsx-no-useless-fragment": "error",
+
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+
     "sort-keys": "error",
     "import/order": [
       "error",

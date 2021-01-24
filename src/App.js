@@ -12,7 +12,11 @@ import "./App.scss"
 const fetcher = (url) => fetch(url).then((r) => r.json())
 
 function App() {
-  const { data, error } = useSWR("/api/user", fetcher)
+  const { data, error } = useSWR(
+    "https://rickandmortyapi.com/api/character/1",
+    fetcher
+  )
+
   const [isLoading, setIsLoading] = useState(false)
 
   if (error) return <div>failed to load</div>
@@ -20,12 +24,6 @@ function App() {
 
   return (
     <div className="App">
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
-      <div>
-        hello {data.name} {path.join("name")}!
-      </div>
       {isLoading && (
         <div>
           <button onClick={() => setIsLoading(false)}></button>
@@ -33,6 +31,14 @@ function App() {
           <Link to="/">Home</Link>
         </div>
       )}
+
+      <h1>hello {data.name}!</h1>
+      <br />
+      <h2>Path Join: {path.join(__dirname, "name")}</h2>
+      <br />
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
     </div>
   )
 }
