@@ -6,16 +6,12 @@ import { Route, Switch, Link, NavLink } from "react-router-dom"
 import useSWR from "swr"
 
 import Home from "./pages/Home"
+import { fetchCharacter } from "./services/characters"
 
 import "./App.scss"
 
-const fetcher = (url) => fetch(url).then((r) => r.json())
-
 function App() {
-  const { data, error } = useSWR(
-    "https://rickandmortyapi.com/api/character/1",
-    fetcher
-  )
+  const { data, error } = useSWR({ id: 1 }, fetchCharacter)
 
   const [isLoading, setIsLoading] = useState(false)
 
