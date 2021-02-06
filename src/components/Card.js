@@ -13,8 +13,8 @@ const Card = ({ character }) => {
           <img src={character.image} alt={name} />
         </div>
         <div className="card-content">
-          <h2>{character.name}</h2>
-          <p className="subtitle">{character.species}</p>
+          <div className="title">{character.name}</div>
+          <div className="subtitle">{character.species}</div>
         </div>
       </div>
     </Link>

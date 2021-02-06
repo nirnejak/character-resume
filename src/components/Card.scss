@@ -7,11 +7,14 @@
 
   .card-image {
     flex: 1;
+
+    display: flex;
     margin-right: 15px;
 
     img {
       border-radius: 50%;
       width: 100%;
+      margin: auto;
     }
   }
 
@@ -20,8 +23,15 @@
 
     color: black;
 
+    .title {
+      font-weight: 600;
+      font-size: 19px;
+      color: #101010;
+    }
+
     .subtitle {
       font-weight: 200;
+      font-size: 15px;
       color: #333;
     }
   }
