@@ -1,9 +1,10 @@
-export const fetchAllCharacters = async (params) => {
+const BASE_URL = "https://rickandmortyapi.com/api/"
+const RESOURCE = "character"
+const URL = `${BASE_URL}/${RESOURCE}`
+
+export const fetchCharacters = async (params) => {
   try {
-    const response = await fetch(
-      "https://rickandmortyapi.com/api/character" +
-        new URLSearchParams(params.params)
-    )
+    const response = await fetch(URL + new URLSearchParams(params.params))
     const data = await response.json()
     return data
   } catch (e) {
@@ -11,11 +12,9 @@ export const fetchAllCharacters = async (params) => {
   }
 }
 
-export const fetchCharacter = async (params) => {
+export const fetchCharacter = async (id) => {
   try {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/${params.id}`
-    )
+    const response = await fetch(`${URL}/${id}`)
     const data = await response.json()
     return data
   } catch (e) {
@@ -25,7 +24,7 @@ export const fetchCharacter = async (params) => {
 
 export const createCharacter = async (params) => {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character", {
+    const response = await fetch(URL, {
       body: params.body,
       headers: {
         "Content-Type": "application/json",
@@ -42,17 +41,14 @@ export const createCharacter = async (params) => {
 
 export const updateCharacter = async (params) => {
   try {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/${params.id}`,
-      {
-        body: params.body,
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        method: "PUT",
-      }
-    )
+    const response = await fetch(`${URL}/${params.id}`, {
+      body: params.body,
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      method: "PUT",
+    })
     const data = await response.json()
     return data
   } catch (e) {
@@ -62,12 +58,9 @@ export const updateCharacter = async (params) => {
 
 export const deleteCharacter = async (params) => {
   try {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/${params.id}`,
-      {
-        method: "DELETE",
-      }
-    )
+    const response = await fetch(`${URL}/${params.id}`, {
+      method: "DELETE",
+    })
     const data = await response.json()
     return data
   } catch (e) {

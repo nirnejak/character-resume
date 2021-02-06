@@ -1,0 +1,28 @@
+.card {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px #e5e5e5 solid;
+  padding: 15px;
+
+  .card-image {
+    flex: 1;
+    margin-right: 15px;
+
+    img {
+      border-radius: 50%;
+      width: 100%;
+    }
+  }
+
+  .card-content {
+    flex: 2;
+
+    color: black;
+
+    .subtitle {
+      font-weight: 200;
+      color: #333;
+    }
+  }
+}
