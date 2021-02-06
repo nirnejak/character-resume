@@ -1,2 +1,17 @@
 .resume-container {
+  background-color: #eeeeee;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+
+  .resume {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+
+    box-shadow: 5px 10px 20px #dddddd;
+
+    padding: 30px;
+    background-color: white;
+  }
 }

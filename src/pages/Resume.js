@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 
 import useSWR from "swr"
 
+import Photo from "../components/Photo"
 import ResumeContainer from "../components/ResumeContainer"
 import { fetchCharacter } from "../services/characters"
 
@@ -14,6 +15,7 @@ const Resume = () => {
 
   return (
     <ResumeContainer>
+      <Photo image={data.image} altText={data.name} />
       <h1>{data.name}</h1>
     </ResumeContainer>
   )

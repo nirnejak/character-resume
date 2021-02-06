@@ -1,12 +1,18 @@
 import PropTypes from "prop-types"
 
-const Photo = ({ imageUrl, altText }) => {
-  return <img src={imageUrl} alt={altText} />
+import "./Photo.scss"
+
+const Photo = ({ image, altText }) => {
+  return (
+    <div className="photo">
+      <img src={image} alt={altText} />
+    </div>
+  )
 }
 
 Photo.propTypes = {
   altText: PropTypes.string,
-  imageUrl: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 }
 
 export default Photo
